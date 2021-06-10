@@ -65,6 +65,7 @@ int main(int argc, char **argv) {
         pLocalCodecParameters = pFormatContext->streams[i]->codecpar;
         // den是denominator（分母）的缩写，num是numerator（分子）的缩写，也就是time_base和r_frame_rate都是一个分数
         // FFMpeg中时间基（time_base）像一把尺子一样，把1s分成N等份，每一个刻度是(1/N)s，比如time_base为{1, 90000}
+        // 这里分母被称为timescale，可以被frame rate(fps)整除
         logging("AVStream->time_base before open coded %d/%d", pFormatContext->streams[i]->time_base.num, pFormatContext->streams[i]->time_base.den);
         logging("AVStream->r_frame_rate before open coded %d/%d", pFormatContext->streams[i]->r_frame_rate.num, pFormatContext->streams[i]->r_frame_rate.den);
         // PRId64跨平台打印int64_t时需要使用它，64位：%ld，32位：%lld

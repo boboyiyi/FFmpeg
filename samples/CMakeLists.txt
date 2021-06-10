@@ -21,3 +21,6 @@ endforeach()
 
 add_executable(hello_world hello_world.c)
 target_link_libraries(hello_world ${FFMPEG_LIBRARY})
+
+add_executable(transmuxing transmuxing.c)
+target_link_libraries(transmuxing ${FFMPEG_LIBRARY})
